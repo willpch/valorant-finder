@@ -4,16 +4,16 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 400px;
-	background: rgba(6, 46, 131, 0.61);
+	background: rgba(51, 51, 51, 0.753);
 	border-radius: 10px;
-	box-shadow: 5px 2px 8px rgba(0, 0, 0, 0.541);
+	box-shadow: 5px 2px 8px rgba(0, 0, 0, 0.74);
 }
 
 .principal h1 {
 	text-align: center;
 	color: white;
 	padding-bottom: 10px;
-	border-bottom: 1px solid rgb(23, 2, 39);
+	border-bottom: 1px solid rgb(88, 88, 88);
 }
 
 .principal form {
@@ -62,7 +62,7 @@ form .txt-field {
 	border-radius: 50px;
 	height: 30px;
 	font-weight: 600;
-	color: rgb(109, 47, 167);
+	color: rgb(0, 0, 0);
 	margin: 30px 0;
 	cursor: pointer;
 }
