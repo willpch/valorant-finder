@@ -11,10 +11,34 @@ if(isset($_POST['usuario']) || isset($_POST['senha'])) {
     } else {
 
         $usuario = $mysqli->real_escape_string($_POST['usuario']);
-        $usuario = $mysqli->real_escape_string($_POST['senha']);
+        $senha = $mysqli->real_escape_string($_POST['senha']);
 
-        $sql_code = "SELECT * FROM players WHERE usuario = '$usuario' AND senha = '$senha'";
+        $sql_code = "SELECT * FROM player WHERE usuario = '$usuario' AND senha = '$senha'";
         $sql_query = $mysqli->query($sql_code) or die("Falha na execucão do codigo SQL");
+
+        $quantidade = $sql_query->num_rows;
+
+        if ($quantidade == 1) {
+
+            $usuario = $sql_query->fetch_assoc();
+
+            if(!isset($_SESSION)) {
+                session_start();
+            }
+
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['usuario'] = $usuario['usuario'];
+
+            header("Location: index.php");
+
+        } else {
+            echo '
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Eita!</strong> Usuário ou senha inválidos.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            ';
+        }
 
     }
 }

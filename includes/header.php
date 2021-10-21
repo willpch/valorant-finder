@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
     <link rel="shortcut icon" href="assets/img/vf-icon.webp" type="image/x-icon">
 
@@ -48,18 +50,7 @@
                     </form>
                 </div>
             </div>
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle btn-login" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                    Logar
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                    <li class="nav-item" dropdown><a class="dropdown-item" href="login.php">Logar</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Criar conta</a></li>
-                </ul>
-            </div>
+            
         </nav>
     </header>
     <main class="container container-fluid">
