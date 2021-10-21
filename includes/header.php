@@ -48,6 +48,18 @@
                         <input class="form-control me-2" type="search" placeholder="Buscar times/jogadores" aria-label="Search">
                         <button class="btn btn-outline-light" type="submit">Buscar</button>
                     </form>
+                    <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle btn-login" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Logar
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                    <li class="nav-item" dropdown><a class="dropdown-item" href="login.php">Logar</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Criar conta</a></li>
+                </ul>
+            </div>
                 </div>
             </div>
             
