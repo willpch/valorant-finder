@@ -1,11 +1,8 @@
 <?php
 
-$usuario = 'root';
-$senha = '';
-$database = 'vfinder';
-$host ='localhost';
+include 'config.php';
 
-$mysqli = new mysqli($host, $usuario, $senha, $database);
+$mysqli = new mysqli(HOST, USUARIO, SENHA, DATABASE);
 
 if($mysqli->error) {
     die("Falha ao conectar ao banco de dados: " . $mysqli->error);
