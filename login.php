@@ -1,13 +1,28 @@
 <?php 
 
 include 'includes/header.php';
+include 'conexao.php';
+
+if(isset($_SESSION['usuario'])) {
+    header('Location: criar-conta.php');
+}
 
 if(isset($_POST['usuario']) || isset($_POST['senha'])) {
     
     if(strlen($_POST['usuario']) == 0) {
-        echo "Usuário inválido";
+        echo '
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Erro!</strong> Preencha seu usuário.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            ';
     } else if(strlen($_POST['senha']) == 0) {
-        echo "Senha inválida";
+        echo '
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Erro!</strong> Preencha sua senha.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            ';
     } else {
 
         $usuario = $mysqli->real_escape_string($_POST['usuario']);
@@ -34,7 +49,7 @@ if(isset($_POST['usuario']) || isset($_POST['senha'])) {
         } else {
             echo '
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>Eita!</strong> Usuário ou senha inválidos.
+                <strong>Eita!</strong> Usuário ou senha inválidos. <a href="#">Esqueceu sua senha?</a>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             ';
@@ -49,13 +64,13 @@ if(isset($_POST['usuario']) || isset($_POST['senha'])) {
 <link rel="stylesheet" href="assets/css/login.css">
 
 <div class="principal">
-    <div class="login-panel">
+    <div class="login-panel form-group">
         <h1>Login</h1>
 
         <form method="post">
-
+            
             <div class="txt-field">
-                <input type="text" placeholder="Usuário" id="usr" name="usuario" >
+                <input type="text" placeholder="Usuário" id="usr" name="usuario" maxlength="10">
                 <input type="password" placeholder="Senha" id="pw" name="senha" >
             </div>
 

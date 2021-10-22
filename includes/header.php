@@ -1,7 +1,6 @@
 <?php
-    include "conexao.php";
     session_start();
-
+    
 ?>
 
 <!DOCTYPE html>
@@ -49,20 +48,39 @@
                         <button class="btn btn-outline-light" type="submit">Buscar</button>
                     </form>
                     <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle btn-login" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                    Logar
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                    <li class="nav-item" dropdown><a class="dropdown-item" href="login.php">Logar</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Criar conta</a></li>
-                </ul>
-            </div>
+                        <button class="btn btn-primary dropdown-toggle btn-login" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?php if(isset($_SESSION['usuario'])) : ?>
+                                <?php echo ucfirst($_SESSION['usuario']) ?>
+                            <?php else :?>
+                                Logar
+                            <?php endif ?>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                            <li class="nav-item" dropdown>
+                                <a class="dropdown-item" href="<?php if(!isset($_SESSION['usuario'])) {echo 'login.php';} else {echo 'perfil.php';} ?>">
+                                    <?php if(isset($_SESSION['usuario'])) : ?>
+                                        Perfil
+                                    <?php else :?>
+                                        Logar
+                                    <?php endif ?>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="<?php if(!isset($_SESSION['usuario'])) {echo 'criar-conta.php';} else {echo 'sair.php';} ?>">
+                                    <?php if(isset($_SESSION['usuario'])) : ?>
+                                        Sair
+                                    <?php else :?>
+                                        Criar Conta
+                                    <?php endif ?>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
         </nav>
     </header>
     <main class="container container-fluid">

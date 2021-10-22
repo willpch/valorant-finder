@@ -1,5 +1,5 @@
 <?php include 'includes/header.php' ?>
 
-<h1></h1>
+<?php echo $_SESSION['usuario'], $_SESSION['id'] ?>
 
 <?php include 'includes/footer.php' ?>
