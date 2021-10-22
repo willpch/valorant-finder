@@ -70,7 +70,7 @@ if(isset($_POST['usuario']) || isset($_POST['senha'])) {
         <form method="post">
             
             <div class="txt-field">
-                <input type="text" placeholder="Usuário" id="usr" name="usuario" maxlength="10">
+                <input type="text" placeholder="Usuário" id="usr" name="usuario" maxlength="10" >
                 <input type="password" placeholder="Senha" id="pw" name="senha" >
             </div>
 
