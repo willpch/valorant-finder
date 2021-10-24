@@ -28,7 +28,8 @@ if(isset($_POST['usuario']) || isset($_POST['senha'])) {
         $usuario = $mysqli->real_escape_string($_POST['usuario']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
-        $sql_code = "SELECT * FROM player WHERE usuario = '$usuario' AND senha = '$senha'";
+
+        $sql_code = "SELECT * FROM jogadores WHERE usuario = '$usuario' AND senha = '$senha'";
         $sql_query = $mysqli->query($sql_code) or die("Falha na execucão do codigo SQL");
 
         $quantidade = $sql_query->num_rows;

@@ -2,5 +2,5 @@
 
 const USUARIO = 'root';
 const SENHA = '';
-const DATABASE = 'vfinder';
+const DATABASE = 'valorantfinder';
 const HOST = 'localhost';
