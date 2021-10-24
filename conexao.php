@@ -2,8 +2,8 @@
 
 include 'config.php';
 
-$mysqli = new mysqli(HOST, USUARIO, SENHA, DATABASE);
+$mysqli = mysqli_connect(HOST, USUARIO, SENHA, DATABASE);
 
-if($mysqli->error) {
-    die("Falha ao conectar ao banco de dados: " . $mysqli->error);
+if(!$mysqli) {
+    die("Falha ao conectar ao banco de dados: " . mysqli_connect_error());
 }
