@@ -1,0 +1,21 @@
+<?php
+
+if(isset($_POST["submit"])) {
+
+    $usuario = $_POST["usuario"];
+    $senha = $_POST["senha"];
+
+    require_once '../conexao.php';
+    require_once 'funcoes.inc.php';
+
+    if (loginVazio($usuario, $senha) !== false) {
+        header('Location: ../login.php?error=loginvazio');
+        exit();
+    }
+
+    logarUsuario($mysqli, $usuario, $senha);
+
+} else {
+    header("Location: ../login.php");
+    exit();
+}

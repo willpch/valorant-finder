@@ -1,5 +1,5 @@
 <?php
-        // Validações e etc..
+        // Validações e funções criar conta
 function campoVazio($usuario, $email, $apelido, $contato, $senha, $repsenha) {
     $resultado = 0;
 
@@ -69,7 +69,7 @@ function usuarioExistente($mysqli, $usuario, $email) {
     $resultadoDados = mysqli_stmt_get_result($stmt);
 
     if ($tupla = mysqli_fetch_assoc($resultadoDados)) {
-        $tupla;
+        return $tupla;
     } else {
         $resultado = false;
         return $resultado;
@@ -87,11 +87,51 @@ function criarUsuario($mysqli, $usuario, $email, $apelido, $contato, $senha) {
         header('Location: ../criar-conta.php?error=erroestadosql');
         exit();
     }
+    
+    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "sssss", $usuario, $email, $apelido, $contato, password_hash($senha, PASSWORD_DEFAULT));
+    mysqli_stmt_bind_param($stmt, "sssss", $usuario, $email, $apelido, $contato, $senhaHash);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    header('Location: ../index.php?error=none');
+    header('Location: ../criar-conta.php?error=none');
     exit();
+}
+
+        // Validações e funções login
+
+function loginVazio($usuario, $senha) {
+    $resultado = 0;
+
+    if (empty($usuario) || empty($senha)) {
+        
+        $resultado = true;
+    } else {
+        $resultado = false;
+    }
+
+    return $resultado;
+}
+
+function logarUsuario($mysqli, $usuario, $senha) {
+    $usuarioExiste = usuarioExistente($mysqli, $usuario, $usuario);
+
+    if ($usuarioExiste === false) {
+        header('Location: ../login.php?error=usuarioinexistente');
+        exit();
+    }
+
+    $senhaHash = $usuarioExiste["senha"];
+    $checarSenha = password_verify($senha, $senhaHash);
+
+    if ($checarSenha === false) {
+        header('Location: ../login.php?error=senhaincorreta');
+        exit();
+    }
+    else if ($checarSenha === true) {
+        session_start();
+        $_SESSION["id"] = $usuarioExiste["id"];
+        $_SESSION["usuario"] = $usuarioExiste["usuario"];
+        header('Location: ../index.php');
+    }
 }

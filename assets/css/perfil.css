@@ -1,0 +1,26 @@
+body{
+    background-image: url('../img/bg_main.jpg');
+}
+
+.superior{
+    margin-top: 1rem;
+    background-image: url(../img/valo12.jpg);
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.foto{
+    border-radius: 50% ;
+    position: relative;
+    top: 85%;
+    left: 3%;
+    border-inline: 10px;
+    border-color: red;
+    width: 220px;
+    height: 220px;
+    background: url("../img/sp.jpg");
+    background-position: center;
+    background-size: 100%;
+    position: relative;
+    left: 100px;
+}

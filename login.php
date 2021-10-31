@@ -1,63 +1,38 @@
+<?php include_once 'includes/header.php'; ?>
+
 <?php 
 
-include 'includes/header.php';
-include 'conexao.php';
-
 if(isset($_SESSION['usuario'])) {
-    header('Location: criar-conta.php');
+    header('Location: index.php');
 }
 
-if(isset($_POST['usuario']) || isset($_POST['senha'])) {
-    
-    if(strlen($_POST['usuario']) == 0) {
+if (isset($_GET['error'])) {
+    if($_GET['error'] == "usuarioinexistente") {
         echo '
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>Erro!</strong> Preencha seu usuário.
+                <strong>ERRO!</strong> Usuário / E-mail não existe ou incorreto.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            ';
-    } else if(strlen($_POST['senha']) == 0) {
+        ';
+    }
+    else if($_GET['error'] == "senhaincorreta") {
         echo '
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>Erro!</strong> Preencha sua senha.
+                <strong>ERRO!</strong> A senha está incorreta.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            ';
-    } else {
-
-        $usuario = $mysqli->real_escape_string($_POST['usuario']);
-        $senha = $mysqli->real_escape_string($_POST['senha']);
-
-
-        $sql_code = "SELECT * FROM jogadores WHERE usuario = '$usuario' AND senha = '$senha'";
-        $sql_query = $mysqli->query($sql_code) or die("Falha na execucão do codigo SQL");
-
-        $quantidade = $sql_query->num_rows;
-
-        if ($quantidade == 1) {
-
-            $usuario = $sql_query->fetch_assoc();
-
-            if(!isset($_SESSION)) {
-                session_start();
-            }
-
-            $_SESSION['id'] = $usuario['id'];
-            $_SESSION['usuario'] = $usuario['usuario'];
-
-            header("Location: index.php");
-
-        } else {
-            echo '
+        ';
+    }
+    else if($_GET['error'] == "loginvazio") {
+        echo '
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>Eita!</strong> Usuário ou senha inválidos. <a href="#">Esqueceu sua senha?</a>
+                <strong>ERRO!</strong> Preencha todos os campos.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            ';
-        }
-
+        ';
     }
 }
+
 
 ?>
 
@@ -68,18 +43,18 @@ if(isset($_POST['usuario']) || isset($_POST['senha'])) {
     <div class="login-panel form-group">
         <h1>Login</h1>
 
-        <form method="post">
+        <form action="includes/login.inc.php" method="post">
             
             <div class="txt-field">
-                <input type="text" placeholder="Usuário" id="usr" name="usuario" maxlength="10" >
-                <input type="password" placeholder="Senha" id="pw" name="senha" >
+                <input class="form-control" type="text" placeholder="Usuário / E-mail" id="usr" name="usuario" >
+                <input class="form-control" type="password" placeholder="Senha" id="pw" name="senha" >
             </div>
 
             <div class="forgot-pass">
                 <a href="#">Esqueceu a senha?</a>
             </div>
 
-            <input type="submit" value="Login" id="btn-submit">
+            <input type="submit" name="submit" value="Login" id="btn-submit">
 
             <div class="signup">
                 <a href="#">Criar conta</a>

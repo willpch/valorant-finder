@@ -1,0 +1,6 @@
+RewriteEngine on
+
+RewriteRule ^Home$ ./index.php [NC]
+RewriteRule ^Login$ ./login.php [NC]
+RewriteRule ^Criar-Conta$ ./criar-conta.php [NC]
+RewriteRule ^Perfil$ ./perfil.php [NC]
