@@ -1,26 +1,52 @@
-body{
+body {
     background-image: url('../img/bg_main.jpg');
+    height: 100%;
 }
 
-.superior{
+.superior {
     margin-top: 1rem;
     background-image: url(../img/valo12.jpg);
     background-size: cover;
     border-radius: 10px;
 }
 
-.foto{
+.img-user {
     border-radius: 50% ;
+    border: solid orange;
     position: relative;
-    top: 85%;
-    left: 3%;
-    border-inline: 10px;
-    border-color: red;
+    left: 7%;
+    top: 110px;
     width: 220px;
     height: 220px;
-    background: url("../img/sp.jpg");
-    background-position: center;
-    background-size: 100%;
+}
+
+.user-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 35px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
     position: relative;
-    left: 100px;
+    margin-top: 40px;
+}
+
+.link-editar {
+    font-size: 20px;
+    margin: 5px 0 0 5px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bio, .nick-jogo {
+    font-size: large;
+    color: white;
+}
+
+.nick-jogo {
+    color: orangered;
+    font-weight: 500;
+}
+
+.clear {
+    margin-bottom: 55px;
 }
