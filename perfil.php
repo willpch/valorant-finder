@@ -10,48 +10,56 @@ if (!isset($_SESSION['usuario'])) {
 
 <div class="img-fluid img-thumbnail superior">
     <div class="foto">
-        <figure>
-            <p><a class="link-editar">Editar perfil</a></p>
-            <img class="img-user" src="./assets/img/sp.jpg" alt="Imagem do jogador">
-        </figure>
+        
     </div>
 </div>
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4">
-            <p>&nbsp</p>
+    <div class="row gx-2 gy-2 mt">
+        <div class="col-md-8">
+            <div>
+                <figure class="inline">
+                    <img class="foto-user img-thumbnail" src="./assets/img/sp.jpg" alt="Foto jogador">
+                </figure>
+                <div class="inline">  
+                    <p class="user-name">WILL AIRLINES</p> 
+                    <p class="user-nick">LpNA</p>
+                </div>
+                <p class="bio">Instagram.com/ababahdhjsfdsdfsdf</p>
+            </div>
         </div>
-        <div class="col-md-4">
-            <p>&nbsp</p>
-        </div>
-        <div class="col-md-4 text-center">
-            <p class="user-name">Nick do Jogador</p>
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4 text-center">
-        <p class="bio"><span>Bio: </span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, in. Hic ratione consequuntur nihil obcaecati! Soluta, molestiae quasi sit eius, facere rem quae beatae, tempore nisi ullam dignissimos assumenda. Nam?</p>
-        </div>
-        <div class="col-md-4 text-center">
-            <p class="nick-jogo">Nick: Teste#1234</p>
-            <p class="bio">Contato: instagram.com/aabbcc</p>
-        </div>
-        <div class="col-md-4 d-flex justify-content-center">
-            <div class="card text-center" style="width: 14rem;">
-                <img src="./assets/img/team-card-pic.jpg" class="card-img-top" alt="imagem card time">
+        <div class="col-md-4 d-md-flex flex-row-reverse">
+            <div class="card bg-black text-center" style="width: 15rem;">
+                <img src="./assets/img/team-card-pic.jpg" class="card-img-top" alt="Card do time">
                 <div class="card-body">
-                    <h5 class="card-title">Chicago Bulls</h5>
-                    <p class="card-text">ChiBl</p>
-                    <a href="#" class="btn btn-primary">Ver/Aplicar</a>
+                    <a class="link-geral" href="#"><h5>Turminha Gaming</h5></a>
+                    <p class="card-text">TGM</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="row gx-2 gy-2 mt">
+        <div class="col-md-3">
+            <div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div>
+                <p class="bio">
+                    <span>Bio: </span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur in nisi ipsum earum eos ratione, explicabo esse tempore nobis, autem facere quod quo recusandae laborum? Recusandae amet quia rem beatae.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4 d-md-flex flex-row-reverse">
+            <div>
+                <button class="btn btn-success">Editar perfil</button>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 <div class="clear"></div>
 
