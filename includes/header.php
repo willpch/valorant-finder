@@ -1,5 +1,8 @@
 <?php
+    ob_start();
     session_start();
+    if(isset($_SESSION['id']))
+        $idSessao = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -12,11 +15,13 @@
     <meta name="Description" content="Find or create your Valorant dream team!" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.0/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <link rel="stylesheet" href="jquery.Jcrop.min.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/main.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="jquery.Jcrop.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,7 +66,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                             <li class="nav-item" dropdown>
-                                <a class="dropdown-item" href="<?php if(!isset($_SESSION['usuario'])) {echo 'login.php';} else {echo 'perfil.php';} ?>">
+                                <a class="dropdown-item" href="<?php if(!isset($_SESSION['usuario'])) {echo 'login.php';} else {echo "perfil.php?id="."$idSessao";} ?>">
                                     <?php if(isset($_SESSION['usuario'])) : ?>
                                         Perfil
                                     <?php else :?>

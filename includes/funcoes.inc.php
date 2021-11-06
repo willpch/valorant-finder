@@ -134,4 +134,6 @@ function logarUsuario($mysqli, $usuario, $senha) {
         $_SESSION["usuario"] = $usuarioExiste["usuario"];
         header('Location: ../index.php');
     }
+
 }
+

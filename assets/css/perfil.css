@@ -15,6 +15,7 @@ body {
 .foto-user {
     width: 120px;
     height: 120px;
+    object-fit: cover; /* Não deixa a foto esticada */
 }
 
 
@@ -54,6 +55,17 @@ body {
 
 .bio {
     color: white;
+}
+
+.btn-edit-foto {
+    padding: 0px 5px 5px 5px;
+    position: relative;
+    top: 39px;
+    left: -37px;
+}
+
+.btn-edit-foto:hover {
+    background: green;
 }
 
 .clear {
