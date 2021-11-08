@@ -58,16 +58,22 @@ body {
 }
 
 .btn-edit-foto {
-    padding: 0px 5px 5px 5px;
-    position: relative;
-    top: 39px;
-    left: -37px;
+    float: left;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.btn-edit-foto:hover {
+    opacity: 100%;
 }
 
 .btn-edit-foto:hover {
     background: green;
 }
 
-.clear {
-    margin-bottom: 55px;
+.card {
+    margin-top: 0;
 }
