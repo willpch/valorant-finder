@@ -31,7 +31,7 @@
             <?php foreach ($buscaTimes as $time) { ?>
                 <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
                     <div class="card text-center">
-                        <img class="img-card" src="<?php echo $time['logo_time'] == NULL ? "assets/img/default_team_avatar.png" : $time['imagem'];?>" alt="Card do time">
+                        <img class="img-card" src="<?php echo $time['logo_time'] == NULL ? "assets/img/default_team_avatar.png" : $time['logo_time'];?>" alt="Card do time">
                         <div class="card-body">
                             <a class="link-geral" href="<?php echo "time.php?id=".$time["id"] ?>"><h5><?php echo ucfirst($time['nome']) ?></h5></a>
                             <p class="card-text"><?php echo strtoupper($time['siglas'])." (Equipe)" ?></p>
