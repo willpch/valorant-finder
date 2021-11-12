@@ -8,18 +8,38 @@
 
     $uid = $_GET['id'];
 
-    $select = "SELECT * FROM jogadores WHERE id = '{$uid}'";
-    $exec = mysqli_query($mysqli, $select);
-    $linha = mysqli_fetch_assoc($exec);
+    $select1 = "SELECT * FROM jogadores WHERE id = '{$uid}'";
+    $exec1 = mysqli_query($mysqli, $select1);
+    $linha1 = mysqli_fetch_assoc($exec1);
 
-    $usuarioId = $linha['id'];
-    $usuarioNome = $linha['usuario'];
-    $usuarioApelido = $linha['apelido'];
-    $usuarioContato = $linha['contato'];
-    $usuarioBio = $linha['bio'];
-    $usuarioFoto = $linha['imagem'];
+    $usuarioId = $linha1['id'];
+    $usuarioNome = $linha1['usuario'];
+    $usuarioApelido = $linha1['apelido'];
+    $usuarioContato = $linha1['contato'];
+    $usuarioBio = $linha1['bio'];
+    $usuarioFoto = $linha1['imagem'];
+
+    $select2 = "SELECT * FROM times";
+    $exec2 = mysqli_query($mysqli, $select2);
+    $linha2 = mysqli_fetch_assoc($exec2);
+
+    $timeId = $linha2['id'];
+    $timeNome = $linha2['nome'];
+    $timeSiglas = $linha2['siglas'];
+    $timeFoto = $linha2['logo_time'];
+
+    $selectJogadoresTime = $mysqli->query("SELECT id, nome, siglas, logo_time 
+    FROM times 
+    JOIN times_jogadores
+    WHERE times_jogadores.id_jogador = '$uid' AND times.id = times_jogadores.id_time") or die($mysqli->error);
+
+    $jogadoresTime = $selectJogadoresTime->fetch_assoc();
 
     if($usuarioId != $uid) {
+        header('Location: 404.php');
+    }
+
+    if(!isset($uid)) {
         header('Location: 404.php');
     }
 
@@ -34,7 +54,7 @@
 </div>
 
 <div class="container-fluid">
-    <div class="row gx-2 gy-2 mt">
+    <div class="row gx-0 gy-2 mt">
         <div class="col-md-8">
             <div>
                 <figure class="inline">
@@ -53,14 +73,16 @@
                 </svg>&ensp;Trocar Foto</button>
             <?php } ?>
         </div>
-        <div class="col-md-4 d-md-flex flex-row-reverse">
-            <div class="card card- bg-black text-center">
-                <img src="./assets/img/team-card-pic.jpg" class="card-img-top" alt="Card do time">
+        <div class="col-md-4 d-flex flex-row-reverse">
+            <?php if ($jogadoresTime) { ?>
+            <div class="card text-center">
+                <img class="img-card" src="<?php echo $jogadoresTime['logo_time'] == NULL ? "assets/img/default_team_avatar.png" : $jogadoresTime['logo_time'];?>" class="card-img-top" alt="Card do time">
                 <div class="card-body">
-                    <a class="link-geral" href="#"><h5>Turminha Gaming</h5></a>
-                    <p class="card-text">TGM</p>
+                    <a class="link-geral" href="<?php echo "time.php?id=".$jogadoresTime['id'];?>"><?php echo $jogadoresTime['nome'];?></a>
+                    <p class="card-text"><?php echo strtoupper($jogadoresTime['siglas']);?></p>
                 </div>
             </div>
+            <?php } ?>
         </div>
     </div>
     
@@ -78,7 +100,7 @@
         <div class="col-md-4 d-md-flex flex-row-reverse">
             <div>
             <?php if (isset($idSessao) && $idSessao == $uid) { ?>
-                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#perfil-edit" data-bs-whatever="@getbootstrap">Editar Perfil</button>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#perfil-edit">Editar Perfil</button>
             <?php } ?>
             </div>
         </div>
@@ -89,7 +111,6 @@
 
 <?php
     
-
     include 'editar-perfil.php';
     include 'includes/footer.php'
 ?>

@@ -39,7 +39,7 @@
         $editContato = $_POST['att-contato'];
         $editBio = $_POST['att-bio'];
         $edit = $mysqli->prepare("UPDATE jogadores SET apelido = ?, contato = ?, bio = ? WHERE id = ?") or die($mysqli->error);
-        $edit->bind_param("ssss",$editApelido, $editContato, $editBio, $idSessao);
+        $edit->bind_param("ssss", $editApelido, $editContato, $editBio, $idSessao);
         $edit->execute();
         $mysqli->close();
         header("location: perfil.php?id=".$idSessao);
@@ -101,5 +101,3 @@
     </div>
   </div>
 </div>
-
-<script src="assets/js/editar-perfil.js"></script>

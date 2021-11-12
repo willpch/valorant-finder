@@ -1,17 +1,3 @@
-body {
-    background-image: url('../img/bg_main.jpg');
-    height: 100%;
-}
-
-.superior {
-    margin-top: 1rem;
-    background-image: url(../img/valo12.jpg);
-    background-size: cover;
-    border-radius: 10px;
-    height: 80px;
-}
-
-
 .foto-user {
     width: 120px;
     height: 120px;

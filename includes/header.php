@@ -49,12 +49,12 @@
                             <a class="nav-link active" aria-current="page" href="index.php">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Crie seu time</a>
+                            <a class="nav-link" href="time.php">Crie seu time</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Buscar times/jogadores" aria-label="Search">
-                        <button class="btn btn-outline-light" type="submit">Buscar</button>
+                    <form method="POST" action="buscar.php" class="d-flex">
+                        <input class="form-control me-2" type="search" name="inp-buscar" placeholder="Buscar times/jogadores" aria-label="Buscar">
+                        <button class="btn btn-outline-light" name="buscar" type="submit">Buscar</button>
                     </form>
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle btn-login" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
