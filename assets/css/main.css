@@ -128,7 +128,7 @@ form .txt-field {
 .btn-busca-index {
     margin: 40px 15px 10px 0;
 }
-
+''
 .busca {
     display: flex;
     justify-content: center;
@@ -140,6 +140,17 @@ form .txt-field {
 
 .h1-404 {
     color: red;
+}
+
+.bg-transp {
+    background-color: rgba(0, 0, 0, 0.356);
+    padding: 15px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.label-center {
+    text-align: center;
 }
 
 .clear {

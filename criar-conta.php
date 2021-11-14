@@ -13,12 +13,30 @@ include_once 'includes/header.php';
         <form action="includes/criar-conta.inc.php" method="post">
             
             <div class="txt-field">
-                <input class="form-control" type="text" placeholder="Usuário" id="usr" name="usuario" maxlength="10" >
-                <input class="form-control" type="text" placeholder="E-mail" name="email">
-                <input class="form-control" type="text" placeholder="Nick do jogo" name="apelido">
-                <input class="form-control" type="text" placeholder="Rede social / contato" name="contato">
-                <input class="form-control" type="password" placeholder="Senha" id="pw" name="senha">
-                <input class="form-control" type="password" placeholder="Confirmar Senha" id="repsenha" name="repsenha">
+                <div class="form-floating">
+                    <input class="form-control" type="text" placeholder="Usuário" id="usr" name="usuario" maxlength="10">
+                    <label for="usr">Usuário</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" id="email" type="text" placeholder="E-mail" name="email">
+                    <label for="email">E-mail</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" id="apelido" type="text" placeholder="Nick do jogo" name="apelido">
+                    <label for="apelido">Nick no jogo</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" id="social" type="text" placeholder="Rede social / contato" name="contato">
+                    <label for="social">Rede Social/contato</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" type="password" placeholder="Senha" id="pw" name="senha">
+                    <label for="pw">Senha</label>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" type="password" placeholder="Confirmar Senha" id="repsenha" name="repsenha">
+                    <label for="repsenha">Repetir senha</label>
+                </div>
             </div>
 
             <input type="submit" name="submit" value="Criar" id="btn-submit">

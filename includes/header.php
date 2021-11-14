@@ -48,9 +48,6 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.php">Início</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="time.php">Crie seu time</a>
-                        </li>
                     </ul>
                     <form method="POST" action="buscar.php" class="d-flex">
                         <input class="form-control me-2" type="search" name="inp-buscar" placeholder="Buscar times/jogadores" aria-label="Buscar">
