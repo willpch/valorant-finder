@@ -12,10 +12,10 @@
 ?>
 
         <div>
-            <div class="busca">
-            <button class="btn btn-success btn-busca-index">Ver todos os times</button><button class="btn btn-warning btn-busca-index">Ver todos os perfis</button>
-            </div>
+            <div class="busca mt-5 ms-5">
+            
             <p>Resultados para "<?php echo $buscar ?>":</p>
+            </div>
             <div class="row">
             <?php foreach ($buscaPerfis as $perfil) { ?>
                 <div class="col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
@@ -40,9 +40,9 @@
                 </div>    
             <?php } ?>
             </div>
+            
+        <div class="clear pb-5 pt-2"></div>
         </div>
-
-        <div class="clear"></div>
 
 
 <?php include_once 'includes/footer.php' ?>

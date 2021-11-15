@@ -1,5 +1,26 @@
 <?php
+    include_once 'conexao.php';
 
+    if (!isset($_SESSION['usuario'])) {
+        header('Location: login.php');
+    }
+
+    if (isset($_POST['edit'])) {
+        $timeNome = $_POST['nome'];
+        $timeSiglas = $_POST['siglas'];
+        $data = date("Y-m-d");
+        $prepareTime = $mysqli->prepare("INSERT INTO times (nome, siglas, data_criacao) VALUES (?, ?, ?);") or die("Erro ao criar time, tente novamente");
+        $prepareTime->bind_param("sss", $timeNome, $timeSiglas, $data);
+        $prepareTime->execute();
+        if ($prepareTime) {
+            $novoTime = $mysqli->query("SELECT * FROM times WHERE nome = '$timeNome' AND siglas = '$timeSiglas';");
+            $timeAtual = $novoTime->fetch_assoc();
+            $idTime = $timeAtual['id'];
+            $mysqli->query("INSERT INTO times_jogadores (id_jogador, id_time, administrador) VALUES ('$idSessao', $idTime, TRUE)");
+            header('Location: index.php');
+        }
+        $mysqli->close();
+    }
 
 ?>
 

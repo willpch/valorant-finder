@@ -14,7 +14,6 @@
     $timePerfil = $mysqli->query("SELECT id_time FROM times_jogadores WHERE id_jogador = '$idSessao';");
     $TimeLogado = $timePerfil->fetch_assoc();
     
-    $mysqli->close();
     }
     
     if (isset($_SESSION['usuario'])) { ?>     

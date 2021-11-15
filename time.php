@@ -16,7 +16,7 @@
     $timeNome = $linha['nome'];
     $timeSiglas = $linha['siglas'];
     $timeData = $linha['data_criacao'];
-    $timeFoto = $linha['logo_time'];
+    $usuarioFoto = $linha['logo_time'];
 
     $selectJogadoresTime = $mysqli->query("SELECT id, usuario, apelido, imagem 
     FROM jogadores 
@@ -53,7 +53,7 @@
         <div class="col-lg-4">
             <div>
                 <figure class="inline">
-                    <img class="foto-user img-thumbnail" src="<?php echo $timeFoto == NULL ? "assets/img/default_team_avatar.png" : $timeFoto;?>" alt="Foto time">
+                    <img class="foto-user img-thumbnail" src="<?php echo $usuarioFoto == NULL ? "assets/img/default_team_avatar.png" : $usuarioFoto;?>" alt="Foto time">
                 </figure>
                 <div class="inline">  
                     <p class="user-name"><?php echo $timeNome ?></p>
