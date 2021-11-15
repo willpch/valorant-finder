@@ -1,10 +1,6 @@
 <?php
     include_once 'conexao.php';
 
-    if (!isset($_SESSION['usuario'])) {
-        header('Location: login.php');
-    }
-
     if (isset($_POST['edit'])) {
         $timeNome = $_POST['nome'];
         $timeSiglas = $_POST['siglas'];

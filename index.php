@@ -2,21 +2,19 @@
     include_once 'conexao.php';
 
     if (isset($_SESSION['usuario'])) {
-    $select = "SELECT * FROM jogadores WHERE id = '$idSessao'";
-    $exec = mysqli_query($mysqli, $select);
-    $linha = mysqli_fetch_assoc($exec);
+        $select = "SELECT * FROM jogadores WHERE id = '$idSessao'";
+        $exec = mysqli_query($mysqli, $select);
+        $linha = mysqli_fetch_assoc($exec);
 
-    $usuarioId = $linha['id'];
-    $usuarioNome = $linha['usuario'];
-    $usuarioApelido = $linha['apelido'];
-    $usuarioFoto = $linha['imagem'];
+        $usuarioId = $linha['id'];
+        $usuarioNome = $linha['usuario'];
+        $usuarioApelido = $linha['apelido'];
+        $usuarioFoto = $linha['imagem'];
 
-    $timePerfil = $mysqli->query("SELECT id_time FROM times_jogadores WHERE id_jogador = '$idSessao';");
-    $TimeLogado = $timePerfil->fetch_assoc();
+        $timePerfil = $mysqli->query("SELECT id_time FROM times_jogadores WHERE id_jogador = '$idSessao';");
+        $TimeLogado = $timePerfil->fetch_assoc();
     
-    }
-    
-    if (isset($_SESSION['usuario'])) { ?>     
+    ?>     
 
         <link rel="stylesheet" href="assets/css/painel.css">
         <div class="row">

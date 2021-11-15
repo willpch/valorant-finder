@@ -57,7 +57,7 @@ if (isset($_GET['error'])) {
             <input type="submit" name="submit" value="Login" id="btn-submit">
 
             <div class="signup">
-                <a href="#">Criar conta</a>
+                <a href="criar-conta.php">Criar conta</a>
             </div>
 
         </form>

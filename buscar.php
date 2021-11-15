@@ -1,14 +1,13 @@
 <?php include_once 'includes/header.php';
     include_once 'conexao.php';
 
-    $buscar = $_POST['inp-buscar'];
-    $buscaPerfis = $mysqli->query("SELECT * FROM jogadores WHERE usuario like '%$buscar%' or apelido like '%$buscar%';") or die($mysqli->error);
-    $buscaTimes = $mysqli->query("SELECT * FROM times WHERE nome like '%$buscar%' or siglas like '%$buscar%';") or die($mysqli->error);
-    $todosTimes = $mysqli->query("SELECT * FROM times;") or die($mysqli->error);
-    $todosPerfis = $mysqli->query("SELECT * FROM jogadores;") or die($mysqli->error);
+    if($_POST) {
+        $buscar = filter_var($_POST['inp-buscar'], FILTER_SANITIZE_STRING);
+        $buscaPerfis = $mysqli->query("SELECT * FROM jogadores WHERE usuario like '%$buscar%' or apelido like '%$buscar%';") or die($mysqli->error);
+        $buscaTimes = $mysqli->query("SELECT * FROM times WHERE nome like '%$buscar%' or siglas like '%$buscar%';") or die($mysqli->error);
 
-    $mysqli->close();
-
+        $mysqli->close();
+    }
 ?>
 
         <div>

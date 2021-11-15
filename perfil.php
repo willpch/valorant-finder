@@ -23,10 +23,12 @@
     $exec2 = mysqli_query($mysqli, $select2);
     $linha2 = mysqli_fetch_assoc($exec2);
 
-    $timeId = $linha2['id'];
-    $timeNome = $linha2['nome'];
-    $timeSiglas = $linha2['siglas'];
-    $timeFoto = $linha2['logo_time'];
+    if (mysqli_num_rows($exec2) > 0) {
+        $timeId = $linha2['id'];
+        $timeNome = $linha2['nome'];
+        $timeSiglas = $linha2['siglas'];
+        $timeFoto = $linha2['logo_time'];
+    }
 
     $selectJogadoresTime = $mysqli->query("SELECT id, nome, siglas, logo_time 
     FROM times 
