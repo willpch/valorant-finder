@@ -1,8 +1,8 @@
 <?php
 
 if (isset($_POST['submit'])) {
-    $usuario = $_POST['usuario'];
-    $email = $_POST['email'];
+    $usuario = strtolower($_POST['usuario']);
+    $email = strtolower($_POST['email']);
     $apelido = $_POST['apelido'];
     $contato = $_POST['contato'];
     $senha = $_POST['senha'];

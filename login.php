@@ -1,10 +1,20 @@
-<?php include_once 'includes/header.php'; ?>
+<?php include_once 'includes/header.php';
 
-<?php 
+include 'conexao.php';
+
+
+
+    
+if(!isset($_SESSION['tentativa'])) {
+    
+    $_SESSION['tentativa'] = 1;
+}
+
 
 if(isset($_SESSION['usuario'])) {
     header('Location: index.php');
 }
+
 
 if (isset($_GET['error'])) {
     if($_GET['error'] == "usuarioinexistente") {
@@ -16,6 +26,7 @@ if (isset($_GET['error'])) {
         ';
     }
     else if($_GET['error'] == "senhaincorreta") {
+        $_SESSION['tentativa']++;
         echo '
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>ERRO!</strong> A senha está incorreta.
@@ -33,6 +44,7 @@ if (isset($_GET['error'])) {
     }
 }
 
+$tentativas = $_SESSION['tentativa'];
 
 ?>
 
@@ -46,12 +58,20 @@ if (isset($_GET['error'])) {
         <form action="includes/login.inc.php" method="post">
             
             <div class="txt-field">
-                <input class="form-control" type="text" placeholder="Usuário / E-mail" id="usr" name="usuario" >
-                <input class="form-control" type="password" placeholder="Senha" id="pw" name="senha" >
+                <input class="form-control" type="text" placeholder="Usuário / E-mail" id="usr" name="usuario" <?= $tentativas > 3 ? "disabled" : "" ?> >
+                <input class="form-control" type="password" placeholder="Senha" id="pw" name="senha" <?= $tentativas > 3 ? "disabled" : "" ?> >
             </div>
 
+            <?php if($tentativas < 4) {
+                echo "<span>Tentativas: $tentativas/3</span>";
+            } else {
+                echo "<span>Acesso Bloqueado</span>";
+            }
+            
+            ?>
+
             <div class="forgot-pass">
-                <a href="#">Esqueceu a senha?</a>
+                <a data-bs-toggle="modal" data-bs-target="#troca-senha" href="#">Desbloquear e trocar senha</a>
             </div>
 
             <input type="submit" name="submit" value="Login" id="btn-submit">
@@ -66,4 +86,6 @@ if (isset($_GET['error'])) {
 
 
 
-<?php include 'includes/footer.php' ?>
+<?php include 'includes/footer.php';
+      include 'troca-senha.php'
+?>

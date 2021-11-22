@@ -96,3 +96,29 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="gerencia-time" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Gerenciar time</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" enctype="multipart/form-data" action="">
+          <div class="mb-3">
+            aaaaaa
+          </div>
+          <div class="mb-3">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" name="edit" class="btn btn-primary btn-editar">Atualizar</button>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>

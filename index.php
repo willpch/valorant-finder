@@ -34,7 +34,7 @@
                     <?php } else { ?>
                         <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#cria-time">Criar Time</button>
                     <?php } ?>
-                        <button class="btn btn-outline-danger">Trocar senha</button>
+                        <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#troca-senha">Trocar senha</button>
                 </div>
             </div>
             </div>
@@ -48,6 +48,7 @@
         </div>
     </div>
 <?php }
-    include 'modal-painel.php';
-    include 'includes/footer.php' 
+    include_once 'modal-painel.php';
+    include_once 'troca-senha.php';
+    include_once 'includes/footer.php' 
 ?>

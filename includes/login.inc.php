@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST["submit"])) {
+if(isset($_POST["submit"]) && $tentativas < 3) {
 
     $usuario = $_POST["usuario"];
     $senha = $_POST["senha"];
@@ -19,3 +19,4 @@ if(isset($_POST["submit"])) {
     header("Location: ../login.php");
     exit();
 }
+
